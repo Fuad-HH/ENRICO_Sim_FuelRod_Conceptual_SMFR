@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  dev
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      createPatchDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pointSync   false;
+
+patches
+(
+ //1st one start
+    {
+        name    HEX1c;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX1OPc;
+        }
+        constructFrom patches;
+        patches     (HEX1);
+    }
+
+    {
+        name    HEX1OPc;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX1c;
+        }
+        constructFrom patches;
+        patches (HEX1OP);
+    }
+//1st one end
+// 2nd start
+
+    {
+        name    HEX2c;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX2OPc;
+        }
+        constructFrom patches;
+        patches     (HEX2);
+    }
+
+    {
+        name    HEX2OPc;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX2c;
+        }
+        constructFrom patches;
+        patches (HEX2OP);
+    }
+// 2nd one ends
+// 3rd one starts
+
+    {
+        name    HEX3c;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX3OPc;
+        }
+        constructFrom patches;
+        patches     (HEX3);
+    }
+
+    {
+        name    HEX3OPc;
+        patchInfo
+        {
+            type    cyclic;
+	    neighbourPatch	HEX3c;
+        }
+        constructFrom patches;
+        patches (HEX3OP);
+    }
+);
+
+// ************************************************************************* //

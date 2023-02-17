@@ -1,0 +1,65 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  5                                     |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 1000;
+
+boundaryField
+{
+    MODINLET
+    {
+        type            zeroGradient;
+        //value           uniform 1000;
+    }
+    MODOUTLET
+    {
+        type            fixedValue;
+        value           uniform 1000;
+    }
+    MODTOCLAD
+    {
+        type            calculated;
+        value           uniform 1000;
+    }
+    HEX1c
+    {
+        type            cyclic;
+    }
+    HEX1OPc
+    {
+        type            cyclic;
+    }
+    HEX2c
+    {
+        type            cyclic;
+    }
+    HEX2OPc
+    {
+        type            cyclic;
+    }
+    HEX3c
+    {
+        type            cyclic;
+    }
+    HEX3OPc
+    {
+        type            cyclic;
+    }
+
+}
+
+// ************************************************************************* //
